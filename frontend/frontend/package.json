@@ -1,0 +1,8 @@
+{
+  "name": "frontend-forwarder",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd .. && npm run build && mkdir -p frontend/dist && cp -r dist/* frontend/dist/"
+  }
+}
