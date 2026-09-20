@@ -1,0 +1,301 @@
+/* =========================================================================
+   ANTIGRAVITY — INSTITUTIONAL THEME PACK
+   "Obsidian & Brass" (dark) + "Ledger" (light)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+
+  /* Flatter corner scale — institutional desks */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Hairline depth system */
+  --hairline: 1px solid var(--border);
+
+  /* Default theme: Obsidian & Brass */
+  --bg-main: #0d1117;
+  --bg-card: #141a22;
+  --bg-card-hover: #1a212b;
+  --bg-card-active: #1f2733;
+  --bg-modal-overlay: rgba(8, 10, 14, 0.82);
+
+  --border: #212933;
+  --border-light: #2e3742;
+  --border-glow: rgba(185, 138, 78, 0.28);
+
+  --text-primary: #eef1f5;
+  --text-secondary: #8b94a3;
+  --text-muted: #56606d;
+
+  --accent-blue: #b98a4e;
+  --accent-blue-glow: rgba(185, 138, 78, 0.22);
+  --accent-info: #6c8399;
+
+  --accent-green: #4f9d69;
+  --accent-green-bg: rgba(79, 157, 105, 0.12);
+  --accent-green-glow: rgba(79, 157, 105, 0.22);
+
+  --accent-red: #c1554a;
+  --accent-red-bg: rgba(193, 85, 74, 0.12);
+  --accent-red-glow: rgba(193, 85, 74, 0.22);
+
+  --accent-yellow: #c98a3c;
+  --accent-purple: #8577a3;
+  --accent-cyan: #4f8fa3;
+}
+
+/* -------------------------------------------------------------------------
+   Tabular Numbers for Precision Price/PnL Alignment
+   ---------------------------------------------------------------------- */
+.font-mono,
+.price,
+.pnl,
+[data-numeric] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* -------------------------------------------------------------------------
+   Theme 1: OBSIDIAN & BRASS (data-theme="institutional-dark")
+   ---------------------------------------------------------------------- */
+[data-theme='institutional-dark'] {
+  --bg-main: #0d1117;
+  --bg-card: #141a22;
+  --bg-card-hover: #1a212b;
+  --bg-card-active: #1f2733;
+  --bg-modal-overlay: rgba(8, 10, 14, 0.82);
+
+  --border: #212933;
+  --border-light: #2e3742;
+  --border-glow: rgba(185, 138, 78, 0.28);
+
+  --text-primary: #eef1f5;
+  --text-secondary: #8b94a3;
+  --text-muted: #56606d;
+
+  --accent-blue: #b98a4e;
+  --accent-blue-glow: rgba(185, 138, 78, 0.22);
+  --accent-info: #6c8399;
+
+  --accent-green: #4f9d69;
+  --accent-green-bg: rgba(79, 157, 105, 0.12);
+  --accent-green-glow: rgba(79, 157, 105, 0.22);
+
+  --accent-red: #c1554a;
+  --accent-red-bg: rgba(193, 85, 74, 0.12);
+  --accent-red-glow: rgba(193, 85, 74, 0.22);
+
+  --accent-yellow: #c98a3c;
+  --accent-purple: #8577a3;
+  --accent-cyan: #4f8fa3;
+}
+
+/* -------------------------------------------------------------------------
+   Theme 2: LEDGER (data-theme="institutional-light")
+   ---------------------------------------------------------------------- */
+[data-theme='institutional-light'] {
+  --bg-main: #f4f5f7;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafbfc;
+  --bg-card-active: #eceef1;
+  --bg-modal-overlay: rgba(20, 22, 26, 0.45);
+
+  --border: #dde1e6;
+  --border-light: #c3c9d1;
+  --border-glow: rgba(154, 108, 58, 0.2);
+
+  --text-primary: #1a1e24;
+  --text-secondary: #565f6b;
+  --text-muted: #848d99;
+
+  --accent-blue: #9a6c3a;
+  --accent-blue-glow: rgba(154, 108, 58, 0.15);
+  --accent-info: #4f6a80;
+
+  --accent-green: #3f7d55;
+  --accent-green-bg: rgba(63, 125, 85, 0.1);
+  --accent-green-glow: rgba(63, 125, 85, 0.18);
+
+  --accent-red: #a8453c;
+  --accent-red-bg: rgba(168, 69, 60, 0.1);
+  --accent-red-glow: rgba(168, 69, 60, 0.18);
+
+  --accent-yellow: #a06a26;
+  --accent-purple: #6c5f8a;
+  --accent-cyan: #3e7284;
+}
+
+/* Base Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #090b0e;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+/* Header & Nav */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: var(--hairline);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 24px;
+  background: rgba(185, 138, 78, 0.12);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.brand-title {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-green-bg);
+  border: 1px solid rgba(79, 157, 105, 0.25);
+  color: var(--accent-green);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 157, 105, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(79, 157, 105, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 157, 105, 0); }
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Cards & Widgets */
+.card {
+  background: var(--bg-card);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border-light);
+}
+
+/* Refined Component Utilities */
+.panel-refined {
+  background: var(--bg-card);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.panel-refined:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+}
+
+.divider-hairline {
+  border: none;
+  border-top: var(--hairline);
+  margin: 16px 0;
+}
+
+@keyframes tickUpQuiet {
+  0%   { color: var(--accent-green); }
+  100% { color: var(--text-primary); }
+}
+@keyframes tickDownQuiet {
+  0%   { color: var(--accent-red); }
+  100% { color: var(--text-primary); }
+}
+.tick-flash-up-quiet   { animation: tickUpQuiet 0.6s ease-out; }
+.tick-flash-down-quiet { animation: tickDownQuiet 0.6s ease-out; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
