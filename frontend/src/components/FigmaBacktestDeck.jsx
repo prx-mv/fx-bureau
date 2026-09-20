@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../config/api';
 
 export default function FigmaBacktestDeck({
   activeSymbol = 'XAU/USD',
@@ -20,7 +21,7 @@ export default function FigmaBacktestDeck({
 
   // Fetch real backtest results or adapt to active symbol
   useEffect(() => {
-    fetch(`http://localhost:8000/backtest?symbol=${encodeURIComponent(activeSymbol)}&strategy=ML_ENSEMBLE&timeframe=1H&risk_pct=1.0&bars=400`)
+    fetch(`${API_BASE}/backtest?symbol=${encodeURIComponent(activeSymbol)}&strategy=ML_ENSEMBLE&timeframe=1H&risk_pct=1.0&bars=400`)
       .then((res) => res.json())
       .then((resData) => {
         if (resData && resData.net_profit !== undefined) {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { API_BASE } from '../config/api';
 
 const PAIRS = ['EUR/USD', 'GBP/USD', 'USD/JPY', 'XAU/USD', 'XAG/USD', 'BTC/USD', 'ETH/USD'];
 
@@ -28,7 +29,7 @@ export default function StrategyBacktestDeck({
   const runBacktest = useCallback(async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:8000/backtest?symbol=${encodeURIComponent(symbol)}&strategy=${strategy}&timeframe=${timeframe}&risk_pct=${riskPct}&bars=450`;
+      const url = `${API_BASE}/backtest?symbol=${encodeURIComponent(symbol)}&strategy=${strategy}&timeframe=${timeframe}&risk_pct=${riskPct}&bars=450`;
       const res = await fetch(url);
       if (!res.ok) throw new Error('Backtest API error');
       const data = await res.json();
